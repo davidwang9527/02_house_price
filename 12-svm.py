@@ -19,7 +19,7 @@ standardScaler=StandardScaler()
 #step 4:Training
 regression=SVR(kernel='rbf')
 pipe=Pipeline(steps=[('standardScaler',standardScaler),('regression',regression)])
-param_grid={'regression__C':[0.001,0.003,0.01,0.03,0.1,0.3,1],'regression__gamma':[0.001,0.003,0.01,0.03,0.1,0.3,1]}
+param_grid={'regression__C':[0.1,0.3,1,3,10,30,100],'regression__gamma':[0.001,0.003,0.01,0.03,0.1,0.3,1]}
 search = GridSearchCV(pipe,param_grid,cv=5,refit=True)
 search.fit(X_train,y_train)
 print('best hyperparameters:{}'.format(search.best_params_))

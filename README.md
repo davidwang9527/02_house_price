@@ -1,1 +1,1 @@
-scikit for house price.
+scikit-learn for house price.

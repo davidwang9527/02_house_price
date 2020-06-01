@@ -20,7 +20,7 @@ param_grid={
             'max_features'      :[x for x in np.arange(1,X_train.shape[1],3)],
             'ccp_alpha'         :[x for x in np.linspace(0,0.5,10)]
             }
-search = GridSearchCV(regression,param_grid,cv=10,refit=True)
+search = GridSearchCV(regression,param_grid,cv=5,refit=True)
 search.fit(X_train,y_train)
 print('best hyperparameters for DecisionTreeRegressor:{}'.format(search.best_params_))
 score_train=search.score(X_train,y_train)
